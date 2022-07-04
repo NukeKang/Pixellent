@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+
+import Button from '../components/common/Button';
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const LandingPage = () => {
   return (
     <>
       <div>LandingPage</div>
-      <button onClick={handleStartClick}>START</button>
+      <Button onClick={handleStartClick}>START</Button>
     </>
   );
 };
