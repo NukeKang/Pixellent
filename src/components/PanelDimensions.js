@@ -3,17 +3,24 @@ import React from 'react';
 import { atom, useAtom } from 'jotai';
 import styled from 'styled-components';
 
-export const panelWidthAtom = atom(16);
-export const panelHeightAtom = atom(16);
+export const panelSizeAtom = atom(20);
 
 const PanelDimensions = () => {
-  const [panelWidth, setPanelWidth] = useAtom(panelWidthAtom);
-  const [panelHeight, setPanelHeight] = useAtom(panelHeightAtom);
+  const [panelSize, setPanelSize] = useAtom(panelSizeAtom);
 
-  console.log(panelHeight);
   return (
     <Wrapper>
       <Dimension>
+        <Input
+          defaultValue={panelSize}
+          type="number"
+          onChange={(e) => {
+            setPanelSize(e.target.value);
+          }}
+        />
+        <span>SIZE</span>
+      </Dimension>
+      {/* <Dimension>
         <Input
           defaultValue={panelWidth}
           type="number"
@@ -21,18 +28,8 @@ const PanelDimensions = () => {
             setPanelWidth(e.target.value);
           }}
         />
-        <span>Width</span>
-      </Dimension>
-      <Dimension>
-        <Input
-          defaultValue={panelHeight}
-          type="number"
-          onChange={(e) => {
-            setPanelHeight(e.target.value);
-          }}
-        />
         <span>Height</span>
-      </Dimension>
+      </Dimension> */}
     </Wrapper>
   );
 };
