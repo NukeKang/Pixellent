@@ -1,10 +1,9 @@
 import React from 'react';
 
-import styled from 'styled-components';
-
 import FrameHandler from '../components/FrameHandler';
 import Header from '../components/Header';
 import LeftSidebar from '../components/LeftSidebar';
+import PixelCanvas from '../components/PixelCanvas';
 import RightSidebar from '../components/RightSidebar';
 import {
   EditorMain,
@@ -24,7 +23,9 @@ const Editor = () => {
           <LeftCol>
             <LeftSidebar />
           </LeftCol>
-          <CenterCol>center</CenterCol>
+          <CenterCol>
+            <PixelCanvas />
+          </CenterCol>
           <RightCol>
             <RightSidebar />
           </RightCol>

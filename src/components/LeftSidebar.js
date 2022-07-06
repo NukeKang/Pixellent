@@ -3,15 +3,18 @@ import React from 'react';
 import { atom, useAtom } from 'jotai';
 import { CirclePicker } from 'react-color';
 
-import { panelHeightAtom } from './PanelDimensions';
+export const selectedColorAtom = atom('#f44336');
 
 const LeftSidebar = () => {
-  const [panelWidthAtom] = useAtom(panelHeightAtom);
+  const [selectedColor, setColor] = useAtom(selectedColorAtom);
 
-  console.log(panelWidthAtom);
+  const changedColor = (color) => {
+    setColor(color.hex);
+  };
+
   return (
     <div>
-      <CirclePicker />
+      <CirclePicker color={selectedColor} onChangeComplete={changedColor} />
     </div>
   );
 };
