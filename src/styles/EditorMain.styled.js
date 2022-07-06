@@ -2,13 +2,14 @@ import styled from 'styled-components';
 
 export const EditorMain = styled.div`
   height: 100%;
-  width: 90%;
+  /* width: 100%; */
   margin: 0 auto;
   padding: 0;
 `;
 
 export const CentralContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 export const LeftCol = styled.div`

@@ -1,13 +1,15 @@
 import React from 'react';
 
-import { useAtom } from 'jotai';
 import styled from 'styled-components';
 
-import { panelSizeAtom } from './PanelDimensions';
+import useStore from '../store/store';
+
 import Pixel from './Pixel';
 
 const PixelCanvas = () => {
-  const [canvasSize] = useAtom(panelSizeAtom);
+  const canvasSize = useStore((state) => state.canvasDefaultSize);
+
+  const { canChangeColor, draggable, preventEvent } = useStore();
 
   const pixels = [];
 
@@ -15,19 +17,22 @@ const PixelCanvas = () => {
     pixels.push(<Pixel key={i} />);
   }
 
-  return <CanvasContainer size={canvasSize}>{pixels}</CanvasContainer>;
+  return (
+    <CanvasContainer size={canvasSize} onMouseLeave={preventEvent}>
+      {pixels}
+    </CanvasContainer>
+  );
 };
 
 const CanvasContainer = styled.div`
   background-color: rgb(28, 28, 29);
   width: 500px;
-  border-radius: 3px;
   --size: ${(props) => props.size};
   height: 500px;
   display: grid;
   grid-template-columns: repeat(var(--size), 1fr);
   grid-template-rows: repeat(var(--size), 1fr);
-  gap: 1px;
+  gap: 0.5px;
   padding: 2px;
 `;
 
