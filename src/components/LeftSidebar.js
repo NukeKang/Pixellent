@@ -1,20 +1,20 @@
 import React from 'react';
 
-import { atom, useAtom } from 'jotai';
 import { CirclePicker } from 'react-color';
 
-export const selectedColorAtom = atom('#f44336');
+import useStore from '../store/store';
 
 const LeftSidebar = () => {
-  const [selectedColor, setColor] = useAtom(selectedColorAtom);
-
-  const changedColor = (color) => {
-    setColor(color.hex);
-  };
+  const { selectedColor } = useStore();
 
   return (
     <div>
-      <CirclePicker color={selectedColor} onChangeComplete={changedColor} />
+      <CirclePicker
+        color={selectedColor}
+        onChangeComplete={(color) => {
+          useStore.setState({ selectedColor: color.hex });
+        }}
+      />
     </div>
   );
 };

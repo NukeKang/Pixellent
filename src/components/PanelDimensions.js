@@ -1,21 +1,20 @@
 import React from 'react';
 
-import { atom, useAtom } from 'jotai';
 import styled from 'styled-components';
 
-export const panelSizeAtom = atom(20);
+import useStore from '../store/store';
 
 const PanelDimensions = () => {
-  const [panelSize, setPanelSize] = useAtom(panelSizeAtom);
+  const { canvasDefaultSize } = useStore();
 
   return (
     <Wrapper>
       <Dimension>
         <Input
-          defaultValue={panelSize}
+          defaultValue={canvasDefaultSize}
           type="number"
           onChange={(e) => {
-            setPanelSize(e.target.value);
+            useStore.setState({ canvasDefaultSize: e.target.value });
           }}
         />
         <span>SIZE</span>

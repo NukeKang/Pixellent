@@ -1,41 +1,26 @@
 import React, { useState } from 'react';
 
-import { atom, useAtom } from 'jotai';
 import styled from 'styled-components';
 
-import { selectedColorAtom } from './LeftSidebar';
-const canChangeColorAtom = atom(false);
+import useStore from '../store/store';
 
 const Pixel = () => {
-  const [selectedColor] = useAtom(selectedColorAtom);
+  const { selectedColor } = useStore();
+
   const [pixelColor, setPixelColor] = useState('#313131');
-  const [oldColor, setOldColor] = useState(pixelColor);
-  const [canChangeColor, setCanChangeColor] = useAtom(canChangeColorAtom);
+  const { canChangeColor, draggable } = useStore();
 
   const applyColor = () => {
     setPixelColor(selectedColor);
-    setCanChangeColor(true);
+    canChangeColor();
   };
 
-  const changeColorOnHover = () => {
-    setOldColor(pixelColor);
-    setPixelColor(selectedColor);
-  };
-
-  const reset = () => {
-    // if (canChangeColor) {
-    //   setPixelColor(oldColor);
-    // }
-
-    setCanChangeColor(false);
-  };
-
-  const reset2 = () => {
-    setCanChangeColor(false);
+  const resetColor = () => {
+    canChangeColor();
   };
 
   const handleMouseOver = () => {
-    if (!canChangeColor) {
+    if (!draggable) {
       return;
     } else {
       setPixelColor(selectedColor);
@@ -46,19 +31,16 @@ const Pixel = () => {
       backgroundColor={pixelColor}
       onMouseDown={applyColor}
       onMouseOver={handleMouseOver}
-      onMouseUp={reset}
-      // onMouseLeave={reset2}
-      // onClick={applyColor}
+      onMouseUp={resetColor}
+      onContextMenu={(e) => {
+        e.preventDefault();
+      }}
     ></PixelStyled>
   );
 };
 
 const PixelStyled = styled.div`
   background-color: ${(props) => props.backgroundColor};
-  border-radius: 2px;
-  &:hover {
-    cursor: crosshair;
-  }
 `;
 
 export default Pixel;
