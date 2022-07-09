@@ -5,30 +5,30 @@ import styled from 'styled-components';
 import useStore from '../store/store';
 
 const PanelDimensions = () => {
-  const { canvasDefaultSize } = useStore();
+  const { row, column } = useStore();
 
   return (
     <Wrapper>
       <Dimension>
         <Input
-          defaultValue={canvasDefaultSize}
+          defaultValue={row}
           type="number"
           onChange={(e) => {
-            useStore.setState({ canvasDefaultSize: e.target.value });
+            useStore.setState({ row: e.target.value });
           }}
         />
-        <span>SIZE</span>
+        <span>rows</span>
       </Dimension>
-      {/* <Dimension>
+      <Dimension>
         <Input
-          defaultValue={panelWidth}
+          defaultValue={column}
           type="number"
           onChange={(e) => {
-            setPanelWidth(e.target.value);
+            useStore.setState({ column: e.target.value });
           }}
         />
-        <span>Height</span>
-      </Dimension> */}
+        <span>columns</span>
+      </Dimension>
     </Wrapper>
   );
 };
