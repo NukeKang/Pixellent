@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -7,33 +7,33 @@ import useStore from '../store/store';
 import Pixel from './Pixel';
 
 const PixelCanvas = () => {
-  const canvasSize = useStore((state) => state.canvasDefaultSize);
+  const { row, column } = useStore();
+  const GRID_INITIAL_COLOR = '#fff';
 
-  const { canChangeColor, draggable, preventEvent } = useStore();
+  const [pixels, setPixels] = useState([]);
 
-  const pixels = [];
+  useEffect(() => {
+    const grid = [];
 
-  for (let i = 0; i < canvasSize * canvasSize; i++) {
-    pixels.push(<Pixel key={i} />);
-  }
+    for (let x = 0; x < column; x++) {
+      const rows = [];
 
-  return (
-    <CanvasContainer size={canvasSize} onMouseLeave={preventEvent}>
-      {pixels}
-    </CanvasContainer>
-  );
+      for (let y = 0; y < row; y++) {
+        rows.push(<Pixel key={y} x={x} y={y} color={GRID_INITIAL_COLOR} />);
+      }
+      grid.push(rows);
+    }
+
+    setPixels(grid);
+  }, [row, column]);
+  console.log('🔥🔥🔥', pixels);
+
+  return <CanvasContainer>{pixels}</CanvasContainer>;
 };
 
 const CanvasContainer = styled.div`
-  background-color: rgb(28, 28, 29);
-  width: 500px;
-  --size: ${(props) => props.size};
-  height: 500px;
-  display: grid;
-  grid-template-columns: repeat(var(--size), 1fr);
-  grid-template-rows: repeat(var(--size), 1fr);
-  gap: 0.5px;
-  padding: 2px;
+  width: 100%;
+  height: 100%;
 `;
 
 export default PixelCanvas;

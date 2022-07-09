@@ -1,28 +1,35 @@
 import styled from 'styled-components';
 
 export const EditorMain = styled.div`
-  height: 100%;
-  /* width: 100%; */
+  /* width: 100vw;
+  height: 100vh;
   margin: 0 auto;
-  padding: 0;
+  padding: 0; */
 `;
 
 export const CentralContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: #675563;
 `;
 
 export const LeftCol = styled.div`
   flex: 1;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 
 export const CenterCol = styled.div`
+  position: relative;
   flex: 2;
-  border: 1px solid red;
+  width: 80vw;
+  height: 90vh;
+  background: #a7a5a7;
 `;
 
 export const RightCol = styled.div`
   flex: 1;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;

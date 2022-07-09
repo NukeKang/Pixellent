@@ -1,11 +1,30 @@
 import React from 'react';
 
-const Button = ({ children, onClick }) => {
+import styled from 'styled-components';
+
+const Button = ({ children, onClick, backgroundColor }) => {
   return (
-    <>
-      <button onClick={onClick}>{children}</button>
-    </>
+    <ButtonBody onClick={onClick} bg={backgroundColor}>
+      {children}
+    </ButtonBody>
   );
 };
+
+const ButtonBody = styled.button`
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 2px;
+  padding: 0.5rem;
+  background-color: ${({ bg }) => bg || '#FFF'};
+  color: ${({ color }) => color || '#333'};
+
+  &:hover {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+`;
 
 export default Button;
