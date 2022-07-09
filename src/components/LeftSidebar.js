@@ -1,21 +1,22 @@
 import React from 'react';
 
-import { CirclePicker } from 'react-color';
-
-import useStore from '../store/store';
+import Bucket from './Bucket';
+import Eraser from './Eraser';
+import Paint from './Paint';
+import Pallette from './Pallette';
 
 const LeftSidebar = () => {
-  const { selectedColor } = useStore();
-
   return (
-    <div>
-      <CirclePicker
-        color={selectedColor}
-        onChangeComplete={(color) => {
-          useStore.setState({ selectedColor: color.hex });
-        }}
-      />
-    </div>
+    <>
+      <div>
+        <Pallette />
+      </div>
+      <div>
+        <Paint />
+        <Eraser />
+        <Bucket />
+      </div>
+    </>
   );
 };
 
