@@ -9,12 +9,12 @@ const LeftSidebar = () => {
   return (
     <>
       <div>
-        <Pallette />
-      </div>
-      <div>
         <Paint />
         <Eraser />
         <Bucket />
+      </div>
+      <div>
+        <Pallette />
       </div>
     </>
   );

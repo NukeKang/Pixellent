@@ -7,10 +7,10 @@ import useStore from '../store/store';
 import Button from './common/Button';
 
 const Eraser = () => {
-  const { eraser } = useStore();
+  const { setEraser } = useStore();
 
   return (
-    <Button onClick={eraser}>
+    <Button onClick={setEraser}>
       <FaEraser />
     </Button>
   );
