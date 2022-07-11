@@ -10,6 +10,7 @@ const store = (set, get) => ({
   brush: 'BRUSH',
   eraser: 'ERASER',
   bucket: 'BUCKET',
+  eyedropper: 'EYEDROPPER',
   selectedTools: 'BRUSH',
   hasChangedColor: false,
   floodFill: (image, sr, sc, newColor) => {
@@ -35,6 +36,7 @@ const store = (set, get) => ({
   setBucket: () => set((state) => ({ selectedTools: state.bucket })),
   setBrush: () => set((state) => ({ selectedTools: state.brush })),
   setEraser: () => set((state) => ({ selectedTools: state.eraser })),
+  setEyedropper: () => set((state) => ({ selectedTools: state.eyedropper })),
   setColor: () => set((state) => ({ selectedColor: state.selectedColor })),
 });
 

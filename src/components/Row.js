@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import styled from 'styled-components';
 
@@ -25,6 +25,11 @@ const Row = ({ cells, index, update }) => {
 
         update(i, index);
         checkChangedColor();
+      }
+
+      if (selectedTools === 'EYEDROPPER') {
+        useStore.setState({ selectedColor: e.target.style.backgroundColor });
+        useStore.setState({ selectedTools: 'BRUSH' });
       }
 
       return;

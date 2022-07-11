@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import useStore from '../store/store';
 
 const Color = ({ value }) => {
-  const { selectedColor, eraser, opacity2, setColor } = useStore();
+  const { selectedColor } = useStore();
 
   return (
     <ColorBox
