@@ -1,16 +1,18 @@
 import React from 'react';
 
-import { FaBitbucket } from 'react-icons/fa';
+import { RiPaintFill } from 'react-icons/ri';
 
 import useStore from '../store/store';
 
 import Button from './common/Button';
 
 const Bucket = () => {
+  const { setBucket } = useStore();
+
   return (
     <>
-      <Button>
-        <FaBitbucket />
+      <Button onClick={setBucket}>
+        <RiPaintFill />
       </Button>
     </>
   );

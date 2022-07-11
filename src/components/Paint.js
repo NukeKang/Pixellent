@@ -8,7 +8,8 @@ import useStore from '../store/store';
 import Button from './common/Button';
 
 const Paint = () => {
-  const { selectedColor } = useStore();
+  const { setBrush, selectedColor } = useStore();
+
   const popover = {
     position: 'absolute',
     zIndex: '2',
@@ -24,6 +25,7 @@ const Paint = () => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
 
   const handleClick = () => {
+    setBrush();
     setDisplayColorPicker(!displayColorPicker);
   };
 
