@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import styled from 'styled-components';
 
 import useStore from '../store/store';
 
 import Grid from './Grid';
+
 // 최적화 필요.
 const makeArray = (column, row, color) => {
   let canvas = Array(column);
