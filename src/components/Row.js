@@ -3,9 +3,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 import useStore from '../store/store';
+import floodFill from '../utils/floodFill';
 
 const Row = ({ cells, index, update }) => {
-  const { selectedTools, selectedColor, floodFill, canvas, checkChangedColor } =
+  const { selectedTools, selectedColor, canvas, checkChangedColor } =
     useStore();
 
   const rows = cells.map((color, i) => {
