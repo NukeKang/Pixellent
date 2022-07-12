@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Bucket from './Bucket';
+import DownloadImage from './DownloadImage';
 import Eraser from './Eraser';
 import Eyedropper from './Eyedropper';
 import Paint from './Paint';
@@ -14,6 +15,9 @@ const LeftSidebar = () => {
         <Eraser />
         <Bucket />
         <Eyedropper />
+      </div>
+      <div>
+        <DownloadImage />
       </div>
       <div>
         <Pallette />
