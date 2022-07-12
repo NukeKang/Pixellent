@@ -46,10 +46,12 @@ const Row = ({ cells, index, update }) => {
       if (selectedTools === 'BRUSH') {
         e.target.style.backgroundColor = selectedColor;
         update(i, index);
+        checkChangedColor();
       }
       if (selectedTools === 'ERASER') {
         e.target.style.backgroundColor = '#fff';
         update(i, index);
+        checkChangedColor();
       }
 
       return;
