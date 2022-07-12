@@ -15,6 +15,7 @@ export const CentralContainer = styled.div`
 export const LeftCol = styled.div`
   flex: 1;
   border: 1px solid red;
+  background-color: #303f46;
 `;
 
 export const CenterCol = styled.div`
@@ -24,5 +25,6 @@ export const CenterCol = styled.div`
 
 export const RightCol = styled.div`
   flex: 1;
+  background-color: #303f46;
   border: 1px solid red;
 `;

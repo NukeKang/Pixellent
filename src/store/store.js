@@ -2,8 +2,8 @@ import create from 'zustand';
 import { devtools } from 'zustand/middleware';
 
 const store = (set, get) => ({
-  row: 30,
-  column: 30,
+  row: 20,
+  column: 20,
   canvas: [],
   selectedColor: '#000',
   baseColor: '#fff',
@@ -13,6 +13,7 @@ const store = (set, get) => ({
   eyedropper: 'EYEDROPPER',
   selectedTools: 'BRUSH',
   hasChangedColor: false,
+  gridRef: {},
   floodFill: (image, sr, sc, newColor) => {
     const currColor = image[sr][sc];
     if (currColor === newColor) return image;
