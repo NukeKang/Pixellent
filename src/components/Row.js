@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import useStore from '../store/store';
+import { useStore } from '../store/store';
 import floodFill from '../utils/floodFill';
 
 const Row = ({ cells, index, update }) => {

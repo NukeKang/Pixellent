@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import Editor from './pages/Editor';
 import LandingPage from './pages/LandingPage';
+import { initialSetup } from './utils/start';
+
 //theme은 따로 파일만들어서 관리하기.
 const theme = {
   colors: {
@@ -15,6 +17,10 @@ const theme = {
 };
 
 const App = () => {
+  useEffect(() => {
+    initialSetup(localStorage);
+  }, [localStorage]);
+
   return (
     <ThemeProvider theme={theme}>
       <>

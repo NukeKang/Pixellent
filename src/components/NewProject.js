@@ -1,6 +1,6 @@
 import React from 'react';
 
-import useStore from '../store/store';
+import { useStore } from '../store/store';
 import makeArray from '../utils/makeArray';
 
 import Button from './common/Button';

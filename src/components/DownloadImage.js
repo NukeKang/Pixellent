@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FaDownload } from 'react-icons/fa';
 
-import useStore from '../store/store';
+import { useStore } from '../store/store';
 import exportAsImage from '../utils/exportAsImage';
 
 import Button from './common/Button';

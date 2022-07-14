@@ -4,7 +4,7 @@ import useUndoableState from '@jeremyling/react-use-undoable-state';
 import { cloneDeep } from 'lodash';
 import styled from 'styled-components';
 
-import useStore from '../store/store';
+import { useStore } from '../store/store';
 import makeArray from '../utils/makeArray';
 
 import Button from './common/Button';
@@ -46,8 +46,6 @@ const PixelCanvas = () => {
       canvas[y][x] = '#fff';
     }
     if (selectedTools === 'BUCKET') {
-      console.log(canvas);
-
       setCanv({ canv: copyArray(canvas) });
     }
   };
