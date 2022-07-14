@@ -1,8 +1,6 @@
-import pipe from 'ramda/es/pipe';
 import create from 'zustand';
-import { devtools, persist } from 'zustand/middleware';
 
-const store = (set, get) => ({
+export const useStore = create((set) => ({
   row: 20,
   column: 20,
   canvas: [],
@@ -23,8 +21,4 @@ const store = (set, get) => ({
   setEraser: () => set((state) => ({ selectedTools: state.eraser })),
   setEyedropper: () => set((state) => ({ selectedTools: state.eyedropper })),
   setColor: () => set((state) => ({ selectedColor: state.selectedColor })),
-});
-const createStore = pipe(create);
-const useStore = createStore(store);
-
-export default useStore;
+}));

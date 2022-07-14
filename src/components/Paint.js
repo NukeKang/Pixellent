@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { ChromePicker } from 'react-color';
 import { FaPaintBrush } from 'react-icons/fa';
 
-import useStore from '../store/store';
+import { useStore } from '../store/store';
 
 import Button from './common/Button';
 
