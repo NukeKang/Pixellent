@@ -4,13 +4,13 @@ import styled from 'styled-components';
 
 const Button = ({ children, onClick, backgroundColor, disabled }) => {
   return (
-    <ButtonBody onClick={onClick} bg={backgroundColor} disabled={disabled}>
+    <ButtonWrapper onClick={onClick} bg={backgroundColor} disabled={disabled}>
       {children}
-    </ButtonBody>
+    </ButtonWrapper>
   );
 };
 
-const ButtonBody = styled.button`
+const ButtonWrapper = styled.button`
   border: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   cursor: pointer;

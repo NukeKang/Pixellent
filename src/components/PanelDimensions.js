@@ -11,7 +11,7 @@ const PanelDimensions = () => {
     <Wrapper>
       <Dimension>
         <Input
-          defaultValue={row}
+          value={row}
           type="number"
           onChange={(e) => {
             useStore.setState({ row: e.target.value });
@@ -21,7 +21,7 @@ const PanelDimensions = () => {
       </Dimension>
       <Dimension>
         <Input
-          defaultValue={column}
+          value={column}
           type="number"
           onChange={(e) => {
             useStore.setState({ column: e.target.value });

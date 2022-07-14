@@ -19,7 +19,7 @@ const Save = () => {
     };
 
     if (saveProjectToStorage(localStorage, drawingToSave)) {
-      console.log('Save Complete!');
+      alert('Save Complete!');
     }
   };
 

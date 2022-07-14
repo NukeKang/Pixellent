@@ -4,10 +4,9 @@ import styled from 'styled-components';
 
 import { useStore } from '../store/store';
 
-const Preview = () => {
+const Preview = ({ data }) => {
   const { canvas, row, column } = useStore();
-
-  const PreviewRow = ({ cells }) => {
+  const PreviewRow = ({ cells, storedData }) => {
     const rows = cells.map((color, i) => {
       return (
         <div
@@ -19,7 +18,7 @@ const Preview = () => {
 
     return <Row>{rows}</Row>;
   };
-  const previewGrid = canvas.map((color, index) => {
+  const previewGrid = (data?.paletteGridData || canvas).map((color, index) => {
     return <PreviewRow key={index} cells={color} />;
   });
 
