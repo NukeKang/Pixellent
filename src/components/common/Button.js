@@ -2,9 +2,9 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const Button = ({ children, onClick, backgroundColor }) => {
+const Button = ({ children, onClick, backgroundColor, disabled }) => {
   return (
-    <ButtonBody onClick={onClick} bg={backgroundColor}>
+    <ButtonBody onClick={onClick} bg={backgroundColor} disabled={disabled}>
       {children}
     </ButtonBody>
   );
