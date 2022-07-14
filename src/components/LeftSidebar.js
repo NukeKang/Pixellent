@@ -4,7 +4,7 @@ import Bucket from './Bucket';
 import DownloadImage from './DownloadImage';
 import Eraser from './Eraser';
 import Eyedropper from './Eyedropper';
-import Load from './Load';
+import LoadData from './LoadData';
 import NewProject from './NewProject';
 import Paint from './Paint';
 import Pallette from './Pallette';
@@ -16,7 +16,7 @@ const LeftSidebar = () => {
       <div>
         <NewProject />
         <Save />
-        <Load />
+        <LoadData />
       </div>
       <div>
         <Paint />

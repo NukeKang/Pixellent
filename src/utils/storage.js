@@ -1,19 +1,17 @@
 const STORAGE_KEY = 'pixellent';
 
+const saveDataToStorage = (storage, data) => {
+  try {
+    storage.setItem(STORAGE_KEY, JSON.stringify(data));
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+
 export const initStorage = (storage) => {
   storage.setItem(STORAGE_KEY, '[]');
 };
-
-// export const saveLocalStorage = (location) => {
-//   if (localStorage.getItem("localImgSrc") === null) {
-//     localStorage.setItem("localImgSrc", "[]");
-//   }
-
-//   const preData = JSON.parse(localStorage.getItem("localImgSrc"));
-//   preData.push(location);
-
-//   localStorage.setItem("localImgSrc", JSON.stringify(preData));
-// };
 
 export const saveProjectToStorage = (storage, projectData) => {
   try {
@@ -28,7 +26,7 @@ export const saveProjectToStorage = (storage, projectData) => {
   }
 };
 
-export function getDataFromStorage(storage) {
+export const getDataFromStorage = (storage) => {
   try {
     const data = storage.getItem(STORAGE_KEY);
     return data ? JSON.parse(data) : false;
@@ -36,4 +34,20 @@ export function getDataFromStorage(storage) {
     console.error(error);
     return false;
   }
-}
+};
+
+export const removeProjectFromStorage = (storage, indexToRemove) => {
+  const dataStored = getDataFromStorage(storage);
+  if (dataStored) {
+    let newCurrent = 0;
+    dataStored.splice(indexToRemove, 1);
+    if (dataStored.length === 0) {
+      newCurrent = -1;
+    } else if (dataStored.current > indexToRemove) {
+      newCurrent = dataStored.current - 1;
+    }
+    dataStored.current = newCurrent;
+    return saveDataToStorage(storage, dataStored);
+  }
+  return false;
+};
