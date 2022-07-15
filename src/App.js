@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
+import NotFound from './components/NotFound';
 import Editor from './pages/Editor';
 import LandingPage from './pages/LandingPage';
 import { initialSetup } from './utils/start';
@@ -19,7 +20,7 @@ const theme = {
 const App = () => {
   useEffect(() => {
     initialSetup(localStorage);
-  }, [localStorage]);
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -27,6 +28,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/editor" element={<Editor />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </>
     </ThemeProvider>

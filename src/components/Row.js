@@ -80,7 +80,6 @@ const Pixel = styled.div`
   margin: 0px;
   border-right: 0.1px solid #9e9e9e;
   border-bottom: 0.1px solid #9e9e9e;
-
   cursor: crosshair;
 `;
 
