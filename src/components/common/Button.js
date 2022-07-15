@@ -16,14 +16,23 @@ const ButtonWrapper = styled.button`
   cursor: pointer;
   font-size: 1.5rem;
   font-weight: 700;
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 0.5rem;
+  box-sizing: border-box;
+
   background-color: ${({ bg }) => bg || '#FFF'};
   color: ${({ color }) => color || '#333'};
 
-  &:hover {
-    opacity: 0.9;
-    transform: scale(0.98);
+  text-align: center;
+  transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  cursor: pointer;
+  :hover {
+    background-color: #1363df;
+    transform: translateY(-3px);
+    color: #fff;
+  }
+  :active {
+    transform: translateY(3px);
   }
 `;
 
