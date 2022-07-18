@@ -2,19 +2,19 @@ import React from 'react';
 
 import shortid from 'shortid';
 
-import { useStore } from '../store/store';
+import useStore from '../store/store';
 import { saveProjectToStorage } from '../utils/storage';
 
 import Button from './common/Button';
 
 const Save = () => {
-  const { canvas, column, row } = useStore();
+  const { rows, columns, canvas } = useStore();
 
   const save = () => {
     const drawingToSave = {
       paletteGridData: canvas,
-      columns: column,
-      rows: row,
+      columns: columns,
+      rows: rows,
       id: shortid.generate(),
     };
 
@@ -23,7 +23,11 @@ const Save = () => {
     }
   };
 
-  return <Button onClick={save}>Save</Button>;
+  return (
+    <Button onClick={save} width={150}>
+      SAVE
+    </Button>
+  );
 };
 
 export default Save;

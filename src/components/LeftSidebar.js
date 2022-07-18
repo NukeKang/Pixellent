@@ -1,37 +1,39 @@
 import React from 'react';
 
+import styled from 'styled-components';
+
 import Bucket from './Bucket';
 import DownloadImage from './DownloadImage';
 import Eraser from './Eraser';
 import Eyedropper from './Eyedropper';
-import LoadData from './LoadData';
-import NewProject from './NewProject';
 import Paint from './Paint';
-import Pallette from './Pallette';
-import Save from './Save';
+import Palette from './Palette';
 
 const LeftSidebar = () => {
   return (
     <>
-      <div>
-        <NewProject />
-        <Save />
-        <LoadData />
-      </div>
-      <div>
+      <ToolWrapper>
         <Paint />
         <Eraser />
         <Bucket />
         <Eyedropper />
-      </div>
-      <div>
+      </ToolWrapper>
+      <DownloadWrapper>
         <DownloadImage />
-      </div>
+      </DownloadWrapper>
       <div>
-        <Pallette />
+        <Palette />
       </div>
     </>
   );
 };
+
+const ToolWrapper = styled.div`
+  margin-bottom: 2vh;
+`;
+
+const DownloadWrapper = styled.div`
+  margin-bottom: 2vh;
+`;
 
 export default LeftSidebar;

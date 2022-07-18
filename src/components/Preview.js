@@ -2,10 +2,11 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { useStore } from '../store/store';
+import useStore from '../store/store';
 
 const Preview = ({ data }) => {
-  const { canvas, row, column } = useStore();
+  const { canvas, rows, columns } = useStore();
+
   const PreviewRow = ({ cells, storedData }) => {
     const rows = cells.map((color, i) => {
       return (
@@ -23,7 +24,7 @@ const Preview = ({ data }) => {
   });
 
   return (
-    <Container row={row} column={column}>
+    <Container row={rows} column={columns}>
       {previewGrid}
     </Container>
   );

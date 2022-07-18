@@ -38,16 +38,6 @@ const Container = styled.div`
   background: url('backgroundimage.png') no-repeat center;
   background-size: cover;
   height: 100vh;
-  ::before {
-    content: '';
-    opacity: 0.3;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    background-color: #000;
-  }
 `;
 
 const Wrapper = styled.div`
@@ -57,20 +47,18 @@ const Wrapper = styled.div`
 const Intro = styled.h1`
   font-size: 2.5rem;
   text-align: center;
-  letter-spacing: 1px;
-  background: radial-gradient(circle, #80ffc1 0%, #ff6161 100%);
+  background: radial-gradient(circle, #3330e4 0%, #f637ec 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   animation: animatedGradient 2s infinite ease;
   animation-direction: alternate;
-  margin-top: 250px;
+  margin-top: 20%;
 
   @keyframes animatedGradient {
     from {
       background-size: 100%;
     }
-
     to {
       background-size: 250%;
     }

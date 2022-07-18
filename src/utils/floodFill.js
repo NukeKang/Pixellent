@@ -1,4 +1,4 @@
-const floodFill = (image, sr, sc, newColor) => {
+export const floodFill = (image, sr, sc, newColor) => {
   const currColor = image[sr][sc];
   if (currColor === newColor) return image;
   const queue = [[sr, sc]];
@@ -15,5 +15,3 @@ const floodFill = (image, sr, sc, newColor) => {
   }
   return image;
 };
-
-export default floodFill;

@@ -2,73 +2,42 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { useStore } from '../store/store';
+import useStore from '../store/store';
+
+import Resizer from './Resizer';
 
 const PanelDimensions = () => {
-  const { row, column } = useStore();
+  const { rows, columns } = useStore();
 
   return (
-    <Wrapper>
-      <Dimension>
-        <Input
-          value={row}
-          type="number"
-          onChange={(e) => {
-            useStore.setState({ row: e.target.value });
-          }}
-        />
-        <span>rows</span>
-      </Dimension>
-      <Dimension>
-        <Input
-          value={column}
-          type="number"
-          onChange={(e) => {
-            useStore.setState({ column: e.target.value });
-          }}
-        />
-        <span>columns</span>
-      </Dimension>
-    </Wrapper>
+    <>
+      <DimensionWrapper>
+        {rows} X {columns}
+      </DimensionWrapper>
+      <ResizeWrapper>
+        <Resizer />
+      </ResizeWrapper>
+    </>
   );
 };
 
-const Wrapper = styled.div`
+const ResizeWrapper = styled.div`
   display: flex;
+  align-items: center;
+  text-align: center;
   justify-content: center;
 `;
 
-const Dimension = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  font-size: 0.5rem;
-`;
-
-const Input = styled.input`
-  height: 3rem;
-  width: 3rem;
-  font-size: 1rem;
+const DimensionWrapper = styled.div`
+  font-size: 1em;
   text-align: center;
   background-color: black;
   color: white;
   border: 1px solid grey;
   border-radius: 0.25rem;
-  margin: 0 1rem 0.5rem 1rem;
-  ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  ::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  &:focus {
-    outline: none !important;
-    border-color: red;
-    box-shadow: 0 0 0.5rem grey;
-  }
+  padding: 0.5rem;
+  margin-bottom: 2vh;
+  margin-top: 1vh;
 `;
 
 export default PanelDimensions;
