@@ -1,6 +1,6 @@
 import html2canvas from 'html2canvas';
 
-const exportAsImage = async (element, imageFileName) => {
+export const exportAsImage = async (element, imageFileName) => {
   const html = document.getElementsByTagName('html')[0];
   const body = document.getElementsByTagName('body')[0];
   let htmlWidth = html.clientWidth;
@@ -36,5 +36,3 @@ const downloadImage = (blob, fileName) => {
 
   fakeLink.remove();
 };
-
-export default exportAsImage;

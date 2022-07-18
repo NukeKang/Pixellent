@@ -1,4 +1,4 @@
-const makeArray = (column, row, color) => {
+export const makeArray = (column, row, color) => {
   let canvas = Array(column);
 
   for (let x = 0; x < column; x++) {
@@ -13,5 +13,3 @@ const makeArray = (column, row, color) => {
 
   return canvas;
 };
-
-export default makeArray;
