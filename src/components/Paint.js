@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import { ChromePicker } from 'react-color';
 import { FaPaintBrush } from 'react-icons/fa';
 
-import { useStore } from '../store/store';
+import useStore from '../store/store';
 
 import Button from './common/Button';
 
 const Paint = () => {
-  const { setBrush, selectedColor } = useStore();
+  const { selectedColor, setBrush } = useStore();
 
   const popover = {
     position: 'absolute',
@@ -35,7 +35,7 @@ const Paint = () => {
 
   return (
     <>
-      <Button onClick={handleClick}>
+      <Button onClick={handleClick} width={50}>
         <FaPaintBrush />
       </Button>
       {displayColorPicker ? (

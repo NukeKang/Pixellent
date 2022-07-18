@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 
 import ModalPortal from '../ModalPortal';
-import { useStore } from '../store/store';
+import useStore from '../store/store';
 import { getDataFromStorage, removeProjectFromStorage } from '../utils/storage';
 
 import Button from './common/Button';
@@ -74,7 +74,9 @@ const LoadData = () => {
 
   return (
     <>
-      <Button onClick={handleModalOpen}>Load</Button>
+      <Button onClick={handleModalOpen} width={150}>
+        LOAD
+      </Button>
       {isShowing && (
         <ModalPortal>
           <Modal content={showDrawing()} onCloseModal={setIsShowing}></Modal>

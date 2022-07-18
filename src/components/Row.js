@@ -2,8 +2,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { useStore } from '../store/store';
-import floodFill from '../utils/floodFill';
+import useStore from '../store/store';
+import { floodFill } from '../utils/floodFill';
 
 const Row = ({ cells, index, update }) => {
   const { selectedTools, selectedColor, canvas, checkChangedColor } =
@@ -75,8 +75,8 @@ const Row = ({ cells, index, update }) => {
 };
 
 const Pixel = styled.div`
-  height: 18px;
-  width: 18px;
+  height: 20px;
+  width: 20px;
   margin: 0px;
   border-right: 0.1px solid #9e9e9e;
   border-bottom: 0.1px solid #9e9e9e;

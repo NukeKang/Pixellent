@@ -11,7 +11,7 @@ import { initialSetup } from './utils/start';
 //theme은 따로 파일만들어서 관리하기.
 const theme = {
   colors: {
-    header: '#000',
+    header: '#2C3639',
     body: '#fff',
     footer: '#003333',
   },

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FaEyeDropper } from 'react-icons/fa';
 
-import { useStore } from '../store/store';
+import useStore from '../store/store';
 
 import Button from './common/Button';
 
@@ -10,7 +10,7 @@ const Eyedropper = () => {
   const { setEyedropper } = useStore();
 
   return (
-    <Button>
+    <Button width={50}>
       <FaEyeDropper onClick={setEyedropper} />
     </Button>
   );

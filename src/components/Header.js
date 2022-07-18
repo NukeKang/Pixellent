@@ -3,8 +3,9 @@ import React from 'react';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-import { Button } from '../styles/Button.styled';
 import { StyledHeader } from '../styles/Header.styled';
+
+import Button from './common/Button';
 
 const Header = () => {
   return (
