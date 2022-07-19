@@ -43,7 +43,7 @@ const ModalInner = styled.div`
   border-radius: 15px;
   box-shadow: 5px 5px 15px 5px #000000;
   width: 800px;
-  height: 400px;
+  height: 60vh;
 `;
 
 const ModalCloseButton = styled.div`
@@ -55,7 +55,7 @@ const ModalCloseButton = styled.div`
 const ModalContent = styled.div`
   display: flex;
   justify-content: space-around;
-  padding-top: 50px;
+  padding-top: 10px;
 `;
 
 export default Modal;
