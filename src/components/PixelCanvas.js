@@ -58,25 +58,39 @@ const PixelCanvas = () => {
           return;
         }
       }
+      if (event.key === 'q') {
+        useStore.setState({ selectedTools: 'BRUSH' });
+      }
+      if (event.key === 'w') {
+        useStore.setState({ selectedTools: 'ERASER' });
+      }
+      if (event.key === 'e') {
+        useStore.setState({ selectedTools: 'BUCKET' });
+      }
+      if (event.key === 'r') {
+        useStore.setState({ selectedTools: 'EYEDROPPER' });
+      }
     };
 
     document.addEventListener('keydown', handleKeyboardEvent);
     return () => {
       document.removeEventListener('keydown', handleKeyboardEvent);
     };
-  }, [canv, canvasIndex, canvasLastIndex]);
+  }, [canv, canvasIndex, canvasLastIndex, selectedTools]);
 
   return (
     <CanvasContainer>
-      <Button
-        onClick={() => {
-          undo();
-          useStore.setState({ canvas: canv.canv });
-        }}
-        disabled={!canUndo}
-      >
-        Undo
-      </Button>
+      <ButtonWrapper>
+        <Button
+          onClick={() => {
+            undo();
+            useStore.setState({ canvas: canv.canv });
+          }}
+          disabled={!canUndo}
+        >
+          Undo
+        </Button>
+      </ButtonWrapper>
       <Grid update={update} />
     </CanvasContainer>
   );
@@ -89,6 +103,11 @@ const CanvasContainer = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #303f46;
+`;
+
+const ButtonWrapper = styled.div`
+  margin-bottom: 30px;
+  margin-top: 10px;
 `;
 
 export default PixelCanvas;
