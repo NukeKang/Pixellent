@@ -1,6 +1,5 @@
 import React from 'react';
 
-import FrameHandler from '../components/FrameHandler';
 import Header from '../components/Header';
 import LeftSidebar from '../components/LeftSidebar';
 import PixelCanvas from '../components/PixelCanvas';
@@ -18,7 +17,6 @@ const Editor = () => {
     <>
       <Header />
       <EditorMain>
-        <FrameHandler />
         <CentralContainer>
           <LeftCol>
             <LeftSidebar />

@@ -6,6 +6,8 @@ import { ThemeProvider } from 'styled-components';
 import NotFound from './components/NotFound';
 import Editor from './pages/Editor';
 import LandingPage from './pages/LandingPage';
+import useStore from './store/store';
+import { makeArray } from './utils/makeArray';
 import { initialSetup } from './utils/start';
 
 //theme은 따로 파일만들어서 관리하기.
@@ -18,9 +20,15 @@ const theme = {
 };
 
 const App = () => {
+  const { rows, columns, baseColor } = useStore();
+
   useEffect(() => {
     initialSetup(localStorage);
   }, []);
+
+  useEffect(() => {
+    useStore.setState({ canvas: makeArray(rows, columns, baseColor) });
+  }, [rows, columns]);
 
   return (
     <ThemeProvider theme={theme}>

@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 export const EditorMain = styled.div`
   height: 100vh;
-  /* width: 100%; */
-  margin: 0 auto;
-  padding: 0;
+  padding-top: 3vh;
   padding-left: 3vw;
   padding-right: 3vw;
   color: #dcd7c9;
