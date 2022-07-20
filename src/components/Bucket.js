@@ -12,7 +12,7 @@ const Bucket = () => {
   return (
     <>
       <Button onClick={setBucket} width={50}>
-        <RiPaintFill />
+        <RiPaintFill data-testid="bucket" />
       </Button>
     </>
   );

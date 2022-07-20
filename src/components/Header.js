@@ -5,6 +5,7 @@ import {
   FaPaintBrush,
   FaQuestionCircle,
   FaEyeDropper,
+  FaUndo,
 } from 'react-icons/fa';
 import { RiPaintFill } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
@@ -26,12 +27,14 @@ const Header = () => {
   const showKeyBindings = () => {
     return (
       <Wrapper>
-        <Title>Keyboard Shortcuts</Title>
+        <Title>Shortcuts Keys</Title>
         <Category>History</Category>
         <ShortcutList>
-          <Shortcut>Undo : CTRL + Z</Shortcut>
+          <Shortcut>
+            <FaUndo /> Undo : CTRL + Z
+          </Shortcut>
         </ShortcutList>
-        <Category>Switch Tool</Category>
+        <Category>Tools</Category>
         <ShortcutList>
           <Shortcut>
             <FaPaintBrush /> Brush : Q
@@ -57,7 +60,7 @@ const Header = () => {
           <h1>Pixellent</h1>
         </Link>
         <Button onClick={handleModalOpen}>
-          <FaQuestionCircle />
+          <FaQuestionCircle data-testid="information" />
         </Button>
         {isShowing && (
           <ModalPortal>
@@ -73,17 +76,18 @@ const Header = () => {
 };
 
 const Title = styled.h1`
-  font-size: 1.3rem;
   background-color: black;
   color: white;
   padding: 6px;
-  border-radius: 10px;
+  border-radius: 15px;
   top: 0;
+  text-align: center;
+  width: 500px;
 `;
 
 const Category = styled.h3`
   margin-top: 1.6em;
-  font-size: 1.2em;
+  font-size: 1.4em;
   border-bottom: 1px solid;
 `;
 
@@ -91,6 +95,9 @@ const Wrapper = styled.div`
   padding: 2em;
   margin: 0 auto;
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @media only screen and (max-width: 1000px) {
     width: 100%;
   }
@@ -100,10 +107,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const ShortcutList = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+const ShortcutList = styled.div``;
 
 const Shortcut = styled.div`
   padding-top: 1em;

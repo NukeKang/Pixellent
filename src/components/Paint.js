@@ -36,7 +36,7 @@ const Paint = () => {
   return (
     <>
       <Button onClick={handleClick} width={50}>
-        <FaPaintBrush />
+        <FaPaintBrush data-testid="paint" />
       </Button>
       {displayColorPicker ? (
         <div style={popover}>

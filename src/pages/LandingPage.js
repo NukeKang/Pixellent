@@ -22,7 +22,9 @@ const LandingPage = () => {
     <Container>
       <Wrapper>
         <Intro ref={(element) => (intro = element)}>
-          <span>Pixel Arts in Pixellent are fun!</span>
+          <Banner>Pixel Arts in</Banner>
+          <br />
+          <Banner>Pixellent are fun!</Banner>
           <ButtonWrapper>
             <Button onClick={handleStartClick}>START</Button>
           </ButtonWrapper>
@@ -31,6 +33,11 @@ const LandingPage = () => {
     </Container>
   );
 };
+
+const Banner = styled.span`
+  font-size: 4rem;
+  display: flex;
+`;
 
 const Container = styled.div`
   display: flex;
