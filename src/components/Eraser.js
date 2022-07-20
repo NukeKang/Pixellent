@@ -11,7 +11,7 @@ const Eraser = () => {
 
   return (
     <Button onClick={setEraser} width={50}>
-      <FaEraser />
+      <FaEraser data-testid="eraser" />
     </Button>
   );
 };

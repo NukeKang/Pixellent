@@ -11,7 +11,7 @@ const Eyedropper = () => {
 
   return (
     <Button width={50}>
-      <FaEyeDropper onClick={setEyedropper} />
+      <FaEyeDropper onClick={setEyedropper} data-testid="eyedropper" />
     </Button>
   );
 };
