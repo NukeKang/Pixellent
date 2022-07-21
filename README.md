@@ -109,7 +109,7 @@ npm start
 - Eraser: 작업물 지우기, Drag 가능 (단축키: W)
 - Bucket: 채우기 기능 (단축키: E)
 - Eyedropper: 색 추출 기능 (단축키: R)
-- DownloadImage: png 파일로 저장
+- DownloadImage: png 파일로 저장할 수 있습니다.
 - Palette: 색 고를 수 있는 기능 (선택한 색은 따로 나타내 줍니다.)
 
 </div>
