@@ -2,9 +2,17 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-const Button = ({ width, children, onClick, backgroundColor, disabled }) => {
+const Button = ({
+  onChange,
+  width,
+  children,
+  onClick,
+  backgroundColor,
+  disabled,
+}) => {
   return (
     <ButtonWrapper
+      onChange={onChange}
       onClick={onClick}
       bg={backgroundColor}
       width={width}

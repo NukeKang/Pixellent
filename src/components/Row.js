@@ -35,6 +35,7 @@ const Row = ({ cells, index, update }) => {
 
       return;
     };
+
     const handleDragStart = (e) => {
       let dragImgEl = document.createElement('span');
       dragImgEl.setAttribute(
@@ -43,6 +44,7 @@ const Row = ({ cells, index, update }) => {
       );
       e.dataTransfer.setDragImage(dragImgEl, 0, 0);
     };
+
     const handleDragEnter = (e) => {
       if (selectedTools === 'BRUSH') {
         e.target.style.backgroundColor = selectedColor;
@@ -87,4 +89,4 @@ const Rows = styled.div`
   display: flex;
 `;
 
-export default Row;
+export default React.memo(Row);

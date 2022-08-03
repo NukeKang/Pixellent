@@ -38,6 +38,7 @@ export const getDataFromStorage = (storage) => {
 
 export const removeProjectFromStorage = (storage, indexToRemove) => {
   const dataStored = getDataFromStorage(storage);
+
   if (dataStored) {
     let newCurrent = 0;
     dataStored.splice(indexToRemove, 1);
@@ -47,7 +48,9 @@ export const removeProjectFromStorage = (storage, indexToRemove) => {
       newCurrent = dataStored.current - 1;
     }
     dataStored.current = newCurrent;
+
     return saveDataToStorage(storage, dataStored);
   }
+
   return false;
 };

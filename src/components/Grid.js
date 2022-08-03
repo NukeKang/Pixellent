@@ -20,4 +20,4 @@ const Grid = ({ update }) => {
   return <div ref={gridRef}>{grid}</div>;
 };
 
-export default Grid;
+export default React.memo(Grid);
