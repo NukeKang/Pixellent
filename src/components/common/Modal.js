@@ -1,17 +1,10 @@
 import React from 'react';
 
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Modal = ({ content, onCloseModal, redirectLink }) => {
-  const navigate = useNavigate();
-
+const Modal = ({ content, onCloseModal }) => {
   const handleClick = () => {
     onCloseModal(false);
-
-    if (redirectLink) {
-      navigate(redirectLink);
-    }
   };
 
   return (

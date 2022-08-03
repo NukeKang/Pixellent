@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import shortid from 'shortid';
 
 import useStore from '../store/store';
+import { initialSetup } from '../utils/start';
 import { saveProjectToStorage } from '../utils/storage';
 
 import Button from './common/Button';
 
 const Save = () => {
   const { rows, columns, canvas } = useStore();
+
+  useEffect(() => {
+    initialSetup(localStorage);
+  }, []);
 
   const save = () => {
     const drawingToSave = {

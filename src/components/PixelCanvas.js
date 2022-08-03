@@ -5,6 +5,7 @@ import { cloneDeep } from 'lodash';
 import styled from 'styled-components';
 
 import useStore from '../store/store';
+import { makeArray } from '../utils/makeArray';
 
 import Button from './common/Button';
 import Grid from './Grid';
@@ -18,7 +19,8 @@ const copyArray = (array) => {
 };
 
 const PixelCanvas = () => {
-  const { canvas, selectedColor, selectedTools } = useStore();
+  const { rows, columns, baseColor, canvas, selectedColor, selectedTools } =
+    useStore();
 
   const init = { canv: copyArray(canvas) };
 
@@ -47,6 +49,10 @@ const PixelCanvas = () => {
       setCanv({ canv: copyArray(canvas) });
     }
   };
+
+  useEffect(() => {
+    useStore.setState({ canvas: makeArray(rows, columns, baseColor) });
+  }, [rows, columns]);
 
   useEffect(() => {
     const handleKeyboardEvent = (event) => {

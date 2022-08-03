@@ -7,7 +7,7 @@ import useStore from '../store/store';
 const Preview = ({ data }) => {
   const { canvas, rows, columns } = useStore();
 
-  const PreviewRow = ({ cells, storedData }) => {
+  const PreviewRow = ({ cells }) => {
     const rows = cells.map((color, i) => {
       return (
         <div
