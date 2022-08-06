@@ -1,36 +1,26 @@
 import React, { useEffect } from 'react';
 
 import useUndoableState from '@jeremyling/react-use-undoable-state';
-import { cloneDeep } from 'lodash';
 import styled from 'styled-components';
 
 import useStore from '../store/store';
+import { copyArray } from '../utils/copyArray';
 import { makeArray } from '../utils/makeArray';
 
 import Button from './common/Button';
 import Grid from './Grid';
 
-const copyArray = (array) => {
-  let newArray = '';
-
-  newArray = cloneDeep(array);
-
-  return newArray;
-};
-
 const PixelCanvas = () => {
   const { rows, columns, baseColor, canvas, selectedColor, selectedTools } =
     useStore();
 
-  const init = { canv: copyArray(canvas) };
+  const init = { canv: canvas.slice() };
 
   const {
     state: canv,
     setState: setCanv,
     index: canvasIndex,
-    lastIndex: canvasLastIndex,
     goBack: undo,
-    goForward: redo,
   } = useUndoableState(init, 1);
 
   const canUndo = canvasIndex > 0;
@@ -43,7 +33,7 @@ const PixelCanvas = () => {
     }
 
     if (selectedTools === 'ERASER') {
-      canvas[y][x] = '#fff';
+      canvas[y][x] = baseColor;
     }
     if (selectedTools === 'BUCKET') {
       setCanv({ canv: copyArray(canvas) });
@@ -56,7 +46,7 @@ const PixelCanvas = () => {
 
   useEffect(() => {
     const handleKeyboardEvent = (event) => {
-      if (event.metaKey && event.key === 'z') {
+      if ((event.metaKey || event.ctrlKey) && event.key === 'z') {
         if (canUndo) {
           useStore.setState({ canvas: canv.canv });
           undo();
@@ -82,15 +72,15 @@ const PixelCanvas = () => {
     return () => {
       document.removeEventListener('keydown', handleKeyboardEvent);
     };
-  }, [canv, canvasIndex, canvasLastIndex, selectedTools]);
+  }, [canv, canvasIndex, selectedTools]);
 
   return (
     <CanvasContainer>
       <ButtonWrapper>
         <Button
           onClick={() => {
-            undo();
             useStore.setState({ canvas: canv.canv });
+            undo();
           }}
           disabled={!canUndo}
         >
