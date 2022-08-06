@@ -6,14 +6,17 @@ import useStore from '../store/store';
 import { floodFill } from '../utils/floodFill';
 
 const Row = ({ cells, index, update }) => {
-  const { selectedTools, selectedColor, canvas, checkChangedColor } =
+  const { selectedTools, selectedColor, canvas, checkChangedColor, setCanvas } =
     useStore();
-
+  // console.log(canvas);
   const rows = cells.map((color, i) => {
     const handleMouseDown = (e) => {
       if (selectedTools === 'BRUSH') {
-        update(i, index);
         e.target.style.backgroundColor = selectedColor;
+        update(i, index);
+        setCanvas;
+        // console.log(canvas[i]);
+        // canvas[i] = selectedColor;
         checkChangedColor();
       }
       if (selectedTools === 'ERASER') {
