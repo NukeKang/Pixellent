@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo, useCallback } from 'react';
 
 import useUndoableState from '@jeremyling/react-use-undoable-state';
 import styled from 'styled-components';
@@ -25,20 +25,23 @@ const PixelCanvas = () => {
 
   const canUndo = canvasIndex > 0;
 
-  const update = (x, y) => {
-    setCanv({ canv: copyArray(canvas) });
-
-    if (canvas[y][x] !== selectedColor) {
-      canvas[y][x] = selectedColor;
-    }
-
-    if (selectedTools === 'ERASER') {
-      canvas[y][x] = baseColor;
-    }
-    if (selectedTools === 'BUCKET') {
+  const update = useCallback(
+    (x, y) => {
       setCanv({ canv: copyArray(canvas) });
-    }
-  };
+
+      if (canvas[y][x] !== selectedColor) {
+        canvas[y][x] = selectedColor;
+      }
+
+      if (selectedTools === 'ERASER') {
+        canvas[y][x] = baseColor;
+      }
+      if (selectedTools === 'BUCKET') {
+        setCanv({ canv: copyArray(canvas) });
+      }
+    },
+    [canvas, selectedTools, baseColor, selectedColor, canv, setCanv],
+  );
 
   useEffect(() => {
     useStore.setState({ canvas: makeArray(rows, columns, baseColor) });
@@ -106,4 +109,4 @@ const ButtonWrapper = styled.div`
   margin-top: 10px;
 `;
 
-export default PixelCanvas;
+export default memo(PixelCanvas);
