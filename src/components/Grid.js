@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { memo, useCallback, useEffect, useRef } from 'react';
 
 import useStore from '../store/store';
 
@@ -13,11 +13,14 @@ const Grid = ({ update }) => {
     useStore.setState({ gridRef: gridRef });
   }, []);
 
-  const grid = canvas?.map((color, index) => {
-    return <Row key={index} cells={color} index={index} update={update} />;
-  });
+  const grid = useCallback(
+    canvas?.map((color, index) => {
+      return <Row key={index} cells={color} index={index} update={update} />;
+    }),
+    [canvas, update],
+  );
 
   return <div ref={gridRef}>{grid}</div>;
 };
 
-export default React.memo(Grid);
+export default memo(Grid);
