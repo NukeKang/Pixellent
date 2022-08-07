@@ -8,8 +8,6 @@
   </h3>
 </p>
 
-<br>
-
 ## 💁🏻‍♂️ Introduction
 
 **Pixellent**는 픽셀 아트를 쉽게 제작할 수 있는 웹어플리케이션 입니다. <br>
@@ -32,8 +30,6 @@
 
 - [Frontend](https://github.com/Ravender91/Pixellent)
 
-<br>
-
 ## ⚙️ Tech Stack
 
 **FrontEnd**
@@ -52,16 +48,12 @@
 
 - [Netilfy](https://www.netlify.com/)
 
-<br>
-
 ## 🗝 Installation
 
 ```bash
 npm install
 npm start
 ```
-
-<br>
 
 ## 📆 Schedule
 
@@ -72,81 +64,16 @@ npm start
 - 2022년 7월 3일 - 2022년 7월 15일: 개발 기능 구현
 - 2022년 7월 16일 - 2022년 7월 22일: Stand Up 발표 준비 및 리팩토링
 
-<br>
-
 ## 🕹 Features
 
-<details>
-<summary><span style="font-size:15px">Landing Page</span></summary>
-<div markdown="1">
-
-![LandingPage](/src/assets/LandingPage.png)
-
-- START 버튼을 누르면 editor 페이지로 이동합니다.
-</div>
-</details>
-
-<details>
-<summary><span style="font-size:15px">Tools</span></summary>
-<div markdown="1">
-
-![Tools](/src/assets/Tools.png)
-
-- Brush: react color 라이브러리 사용, 해당 버튼 누르면 색을 고를 수 있는 창이 등장. Drag 가능 (단축키: Q)
-- Eraser: 작업물 지우기, Drag 가능 (단축키: W)
-- Bucket: 채우기 기능 (단축키: E)
-- Eyedropper: 색 추출 기능 (단축키: R)
-- DownloadImage: png 파일로 저장할 수 있습니다.
-- Palette: 색 고를 수 있는 기능 (선택한 색은 따로 나타내 줍니다.)
-
-</div>
-</details>
-
-<details>
-<summary><span style="font-size:15px">Canvas</span></summary>
-<div markdown="1">
-
-![Canvas](/src/assets/Canvas.png)
-
-- 위의 기능들을 사용하여 픽셀아트를 그릴 수 있습니다.
-- Undo는 이전의 작업을 되돌릴 수 있습니다. (단축키: CTRL + Z)
-</div>
-</details>
-
-<details>
-<summary><span style="font-size:15px">Preview</span></summary>
-<div markdown="1">
-
-![Preview](/src/assets/Preview.png)
-
-- 현재 작업 중인 그림을 실시간으로 볼 수 있습니다.
-</div>
-</details>
-
-<details>
-<summary><span style="font-size:15px">Dimension</span></summary>
-<div markdown="1">
-
-![Dimension](/src/assets/Dimension.png)
-
-- 캔버스의 크기를 조절할 수 있습니다.
-</div>
-</details>
-
-<details>
-<summary><span style="font-size:15px">Local Storage</span></summary>
-<div markdown="1">
-
-![Local Storage](/src/assets/localStorage.png)
-![Load](/src/assets/Load.png)
-
-- new 버튼을 누르면 캔버스가 초기화됩니다.
-- save 버튼을 누르면 Local Storage에 저장됩니다.
-- load 버튼을 누르면 Local Storage에 저장된 작업물들을 보여줍니다. 클릭하면 해당 작업을 이어나갈 수 있습니다. 삭제도 가능합니다.
-</div>
-</details>
-
-<br>
+기능|예시|설명
+|:---:|:---:|---|
+|Landing Page &nbsp;&nbsp;&nbsp;|<img src="/src/assets/LandingPage.png" width="400" height="200"/>|START 버튼을 누르면 editor 페이지로 이동합니다.|
+|Tools|<img src="/src/assets/Tools.png" width="300" height="200"/>  |- **Brush** : 색을 고를 수 있습니다. Drag 가능 (단축키: Q) <br> - **Eraser** : 작업물 지우기, Drag 가능 (단축키: W) <br> - **Bucket** : 채우기 기능 (단축키: E) <br> - **Eyedropper** : 색 추출 기능 (단축키: R) <br> - **DownloadImage** : png 파일로 저장할 수 있습니다. <br> - **Palette** : default color 제공|
+|Canvas|<img src="/src/assets/Canvas.png" width="300" height="200"/>|- 위의 기능들을 사용하여 픽셀아트를 그릴 수 있습니다. <br> - Undo는 이전의 작업을 되돌릴 수 있습니다. (단축키: CTRL + Z)|
+|Preview|<img src="/src/assets/Preview.png" width="400" height="200"/>|- 현재 작업 중인 그림을 실시간으로 볼 수 있습니다.|
+|Dimension|<img src="/src/assets/Dimension.png" width="300" height="200"/>|- 캔버스의 크기를 조절할 수 있습니다.|
+|Local Storage|<img src="/src/assets/localStorage.png" width="300" height="200"/><img src="/src/assets/Load.png" width="300" height="200">|- New 버튼을 누르면 캔버스가 초기화됩니다.<br> - Save 버튼을 누르면 Local Storage에 저장됩니다.<br> - Load 버튼을 누르면 Local Storage에 저장된 작업물들을 보여줍니다. 클릭하면 해당 작업을 이어나갈 수 있습니다. 삭제도 가능합니다.<br>|
 
 ## 🏁 Log & Challenge
 
