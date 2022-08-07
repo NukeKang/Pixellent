@@ -6,7 +6,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Header from '../components/Header';
 import LandingPage from '../pages/LandingPage';
-import { StyledHeader } from '../styles/Header.styled';
 
 beforeEach(() => {
   render(
@@ -34,9 +33,7 @@ test('START 버튼을 누르면, Header 컴포넌트가 렌더링 돼야 한다.
   expect(
     render(
       <BrowserRouter>
-        <StyledHeader>
-          <Header />
-        </StyledHeader>
+        <Header />
       </BrowserRouter>,
     ),
   );
